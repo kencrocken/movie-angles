@@ -1,0 +1,32 @@
+@if(!getLoadingStatus()){
+<div class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 md:gap-5">
+  @for (movie of movies; track movie.id) {
+  <div class="bg-[#595959] rounded-lg">
+    <button
+      class="h-full"
+      [routerLink]="['/detail', movie.title | slugify]"
+      [queryParams]="{ id: movie.id }"
+      aria-label="show movie details"
+    >
+      <img
+        [src]="getImageUrl(movie.poster_path)"
+        [alt]="'poster for ' + movie.title"
+        class="rounded-t-lg"
+      />
+      <div class="p-4 h-full">
+        <h2 class="font-semibold text-lg">{{ movie.title }}</h2>
+        <p class="text-sm">{{ movie.release_date | date : "longDate" }}</p>
+        <p class="text-sm text-start mt-2">{{ movie.overview }}</p>
+      </div>
+    </button>
+  </div>
+  } @empty {
+  <div
+    class="flex justify-center col-span-full w-96 p-4 my-4 mx-auto text-sm bg-gray-800 text-[tomato] rounded-lg"
+    role="alert"
+  >
+    <span class="font-medium">No movies found</span>
+  </div>
+  }
+</div>
+}

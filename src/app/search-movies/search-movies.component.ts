@@ -1,7 +1,7 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { MovieGridComponent } from '../movie-grid/movie-grid.component';
 import { MoviesService } from '../services/movies.service';
-import { MovieDetail } from '../interfaces/movie-detail';
+import { MovieInfo } from '../interfaces/movie-detail';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,11 +12,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './search-movies.component.css',
 })
 export class SearchMoviesComponent implements OnInit {
-  moviesService = inject(MoviesService);
+  private activatedRoute = inject(ActivatedRoute);
+  private moviesService = inject(MoviesService);
   title = 'Search Results';
-  searchResults = signal<MovieDetail[]>([]);
+  searchResults = signal<MovieInfo[]>([]);
 
-  constructor(private activatedRoute: ActivatedRoute) {}
   ngOnInit(): void {
     this.searchMovies();
   }

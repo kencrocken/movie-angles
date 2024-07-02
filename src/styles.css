@@ -2,3 +2,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+a {
+  @apply text-base-color transition-colors ease-in-out delay-75;
+
+  &:hover {
+    @apply text-accent;
+  }
+}

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { environment } from '../../environments/environment.development';
-import { MovieDetail } from '../interfaces/movie-detail';
+import { MovieDetail, MovieInfo } from '../interfaces/movie-detail';
 import { Observable } from 'rxjs';
 
 const BASE_URL = environment.apiBaseUrl;
@@ -16,9 +16,9 @@ export class MoviesService {
 
   constructor() {}
 
-  getTrendingMovies(): Observable<{ results: MovieDetail[] }> {
+  getTrendingMovies(): Observable<{ results: MovieInfo[] }> {
     try {
-      const response = this.http.get<{ results: MovieDetail[] }>(
+      const response = this.http.get<{ results: MovieInfo[] }>(
         `${BASE_URL}/trending/movie/day?page=1&api_key=${API_KEY}`
       );
       return response;
@@ -29,9 +29,9 @@ export class MoviesService {
     }
   }
 
-  getNowPlayingMovies(): Observable<{ results: MovieDetail[] }> {
+  getNowPlayingMovies(): Observable<{ results: MovieInfo[] }> {
     try {
-      const response = this.http.get<{ results: MovieDetail[] }>(
+      const response = this.http.get<{ results: MovieInfo[] }>(
         `${BASE_URL}/movie/now_playing?page=1&api_key=${API_KEY}`
       );
       return response;
@@ -53,9 +53,9 @@ export class MoviesService {
     }
   }
 
-  searchMovies(query: string): Observable<{ results: MovieDetail[] }> {
+  searchMovies(query: string): Observable<{ results: MovieInfo[] }> {
     try {
-      const response = this.http.get<{ results: MovieDetail[] }>(
+      const response = this.http.get<{ results: MovieInfo[] }>(
         `${BASE_URL}/search/movie?query=${query}&include_adult=false&api_key=${API_KEY}`
       );
       return response;

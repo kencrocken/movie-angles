@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { MoviesService } from '../services/movies.service';
-import { MovieDetail } from '../interfaces/movie-detail';
+import { MovieInfo } from '../interfaces/movie-detail';
 import { MovieGridComponent } from '../movie-grid/movie-grid.component';
 
 @Component({
@@ -14,7 +14,7 @@ export class TrendingMoviesComponent implements OnInit {
   private movieService = inject(MoviesService);
 
   title = "Today's Trending Movies";
-  trendingMovies: MovieDetail[] = [];
+  trendingMovies: MovieInfo[] = [];
 
   ngOnInit(): void {
     this.loadTrendingMovies();

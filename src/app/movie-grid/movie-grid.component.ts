@@ -2,7 +2,7 @@ import { Component, Input, inject } from '@angular/core';
 import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import type { MovieDetail } from '../interfaces/movie-detail';
+import type { MovieInfo } from '../interfaces/movie-detail';
 import { LoadingService } from '../services/loading.service';
 import { MoviesService } from '../services/movies.service';
 import { SlugifyPipe } from '../pipes/slugify.pipe';
@@ -15,7 +15,7 @@ import { SlugifyPipe } from '../pipes/slugify.pipe';
   styleUrl: './movie-grid.component.css',
 })
 export class MovieGridComponent {
-  @Input() movies: MovieDetail[] = [];
+  @Input() movies: MovieInfo[] = [];
 
   private movieService = inject(MoviesService);
   private loadingService = inject(LoadingService);

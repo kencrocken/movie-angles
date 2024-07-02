@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit, inject, signal } from '@angular/core';
-import { MovieDetail } from '../interfaces/movie-detail';
+import { MovieDetail, MovieInfo } from '../interfaces/movie-detail';
 import { MoviesService } from '../services/movies.service';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../environments/environment.development';

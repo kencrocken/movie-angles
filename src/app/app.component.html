@@ -1,6 +1,6 @@
 <main>
   <header
-    class="bg-[#595959] p-4 mb-3 relative flex flex-wrap items-center justify-between shadow"
+    class="bg-gray p-4 mb-3 relative flex flex-wrap items-center justify-between shadow"
   >
     <nav
       class="relative w-full flex flex-wrap items-center justify-between pt-2 md:pt-0"
@@ -9,7 +9,7 @@
         <div
           class="w-full relative flex justify-between md:w-auto md:static md:block md:justify-start"
         >
-          <h1 class="font-semibold text-xl">{{ title }}</h1>
+          <h1 class="font-semibold text-2xl">{{ title }}</h1>
           <button type="button" (click)="toggleMenu()" class="md:hidden">
             <span class="sr-only">Open main menu</span>
             <svg
@@ -36,9 +36,9 @@
             <li class="pb-1 md:pb-0">
               <a
                 [routerLink]="['/daily-trending']"
-                routerLinkActive="text-[tomato] underline underline-offset-8"
+                routerLinkActive="text-accent underline underline-offset-8"
                 [routerLinkActiveOptions]="{ exact: true }"
-                class="pr-4 hover:underline hover:underline-offset-8"
+                class="pr-4"
               >
                 <span>Daily Trending</span>
               </a>
@@ -47,7 +47,7 @@
               <a
                 [routerLink]="['/now-playing']"
                 routerLinkActive="text-[tomato] underline underline-offset-8"
-                class="pr-4 hover:underline hover:underline-offset-8"
+                class="pr-4"
               >
                 <span>Now Playing</span>
               </a>
@@ -71,14 +71,14 @@
                     type="text"
                     id="movieTitle"
                     formControlName="movieTitle"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 ps-2"
+                    class="bg-notice-background border border-gray-300 text-accent text-sm rounded-lg focus:ring-focus focus:border-focus block w-full p-1 ps-2"
                     placeholder="Search Movie Title"
                     required
                   />
                 </div>
                 <button
                   type="submit"
-                  class="p-2 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                  class="p-2 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-accent transition-all ease-in-out delay-75 hover:bg-accent focus:ring-4 focus:outline-none focus:ring-focus"
                   [disabled]="!movieSearch.valid"
                 >
                   <svg
